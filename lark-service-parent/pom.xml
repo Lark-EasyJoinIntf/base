@@ -6,17 +6,16 @@
         <groupId>com.lark.cloud</groupId>
         <artifactId>base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.lark.cloud</groupId>
     <artifactId>lark-service-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-
     <name>lark-service-parent</name>
     <description>Demo project for Spring Boot</description>
     <packaging>pom</packaging>
-
 
     <properties>
         <lark.version>0.0.1-SNAPSHOT</lark.version>
@@ -25,9 +24,13 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.lark.cloud</groupId>
-            <artifactId>utils</artifactId>
-            <version>${lark.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
         <dependency>
@@ -36,12 +39,25 @@
             <version>${lark.version}</version>
             <exclusions>
                 <exclusion>
-                    <groupId>com.lark.cloud</groupId>
-                    <artifactId>utils</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-actuator</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
